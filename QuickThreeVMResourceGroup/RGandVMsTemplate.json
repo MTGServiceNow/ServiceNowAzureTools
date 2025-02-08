@@ -1,0 +1,674 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "networkInterfaces_mtgtagdemoproda670_z1_name": {
+      "type": "String"
+    },
+    "networkInterfaces_mtgtagdemoprodd831_z1_name": {
+      "type": "String"
+    },
+    "networkInterfaces_mtgtagdemoprodw999_z1_name": {
+      "type": "String"
+    },
+    "networkSecurityGroups_MTGTagDemoProdA_nsg_name": {
+      "type": "String"
+    },
+    "networkSecurityGroups_MTGTagDemoProdD_nsg_name": {
+      "type": "String"
+    },
+    "networkSecurityGroups_MTGTagDemoProdW_nsg_name": {
+      "type": "String"
+    },
+    "publicIPAddresses_MTGTagDemoProdA_ip_name": {
+      "type": "String"
+    },
+    "publicIPAddresses_MTGTagDemoProdD_ip_name": {
+      "type": "String"
+    },
+    "publicIPAddresses_MTGTagDemoProdW_ip_name": {
+      "type": "String"
+    },
+    "sshPublicKeys_MTGTagDemoKey_name": {
+      "type": "String"
+    },
+    "virtualMachines_MTGTagDemoProdA_name": {
+      "type": "String"
+    },
+    "virtualMachines_MTGTagDemoProdD_name": {
+      "type": "String"
+    },
+    "virtualMachines_MTGTagDemoProdW_name": {
+      "type": "String"
+    },
+    "virtualNetworks_MTGTagDemoProdW_vnet_name": {
+      "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2024-07-01",
+      "location": "eastus",
+      "name": "[parameters('sshPublicKeys_MTGTagDemoKey_name')]",
+      "properties": {
+        "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHr08GRdCyyugXr8st3R2tHWyapVORGhKP8fQubcGicTwgJxnn2gnYw8AUICBE7enh7C4DDP1eqwf8ral4fMworJpCoJk65HhPQJpoDWMpjum0pLAdpsJZR2kCJXNjVOkH0sw4p6vo7QBgXSlT4F0fYK7idz9mFGb+XvOjyi1F3nJdE0zMdbPGPwboLGkIMHpgqYgJtVpgsdxQUfMYpknR5wd4dCYU9O+vk3tKE3lnN6/oSgcK/eSqc7VDxLXOG7aVTctBWyt949mMbwirBBDEIPUyoxD8ZikVMNzIu4wPjvsLhLmS0rvkRwkAzfWY8ilXz12ht10PCvxdclSZCMWrQvnvUFrbZFVLsE8/4nMAn+QYdUWlxzu7V2Nr4hNfYSDlPb7uEjbPtkND5q9oK5foxNDlfIekjE22BL+TsREDy4wrfwUFjiCynXwQRkdZ3rbSbKvNOAlGJiGSAKtHF1qPgsSuwPKstXFoheO/oY1iwLodSUuQMxf9hJ5qLABF0SU= generated-by-azure"
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Compute/sshPublicKeys"
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "name": "[parameters('networkSecurityGroups_MTGTagDemoProdA_nsg_name')]",
+      "properties": {
+        "securityRules": []
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mark Garmin"
+      },
+      "type": "Microsoft.Network/networkSecurityGroups"
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "name": "[parameters('networkSecurityGroups_MTGTagDemoProdD_nsg_name')]",
+      "properties": {
+        "securityRules": []
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Network/networkSecurityGroups"
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "name": "[parameters('networkSecurityGroups_MTGTagDemoProdW_nsg_name')]",
+      "properties": {
+        "securityRules": []
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Network/networkSecurityGroups"
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "name": "[parameters('publicIPAddresses_MTGTagDemoProdA_ip_name')]",
+      "properties": {
+        "idleTimeoutInMinutes": 4,
+        "ipAddress": "20.55.109.139",
+        "ipTags": [],
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
+      },
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mark Garmin"
+      },
+      "type": "Microsoft.Network/publicIPAddresses",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "name": "[parameters('publicIPAddresses_MTGTagDemoProdD_ip_name')]",
+      "properties": {
+        "idleTimeoutInMinutes": 4,
+        "ipAddress": "20.55.110.137",
+        "ipTags": [],
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
+      },
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Network/publicIPAddresses",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "name": "[parameters('publicIPAddresses_MTGTagDemoProdW_ip_name')]",
+      "properties": {
+        "idleTimeoutInMinutes": 4,
+        "ipAddress": "20.84.119.14",
+        "ipTags": [],
+        "publicIPAddressVersion": "IPv4",
+        "publicIPAllocationMethod": "Static"
+      },
+      "sku": {
+        "name": "Standard",
+        "tier": "Regional"
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Network/publicIPAddresses",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "location": "eastus",
+      "name": "[parameters('virtualNetworks_MTGTagDemoProdW_vnet_name')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ]
+        },
+        "enableDdosProtection": false,
+        "privateEndpointVNetPolicies": "Disabled",
+        "subnets": [
+          {
+            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), 'default')]",
+            "name": "default",
+            "properties": {
+              "addressPrefix": "10.0.0.0/24",
+              "delegations": [],
+              "privateEndpointNetworkPolicies": "Disabled",
+              "privateLinkServiceNetworkPolicies": "Enabled"
+            },
+            "type": "Microsoft.Network/virtualNetworks/subnets"
+          }
+        ],
+        "virtualNetworkPeerings": []
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Network/virtualNetworks"
+    },
+    {
+      "apiVersion": "2024-07-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoproda670_z1_name'))]"
+      ],
+      "location": "eastus",
+      "name": "[parameters('virtualMachines_MTGTagDemoProdA_name')]",
+      "properties": {
+        "additionalCapabilities": {
+          "hibernationEnabled": false
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_D2s_v3"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoproda670_z1_name'))]",
+              "properties": {
+                "deleteOption": "Delete"
+              }
+            }
+          ]
+        },
+        "osProfile": {
+          "adminUsername": "azureuser",
+          "allowExtensionOperations": true,
+          "computerName": "[parameters('virtualMachines_MTGTagDemoProdA_name')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "patchSettings": {
+              "assessmentMode": "ImageDefault",
+              "automaticByPlatformSettings": {
+                "rebootSetting": "IfRequired"
+              },
+              "patchMode": "AutomaticByPlatform"
+            },
+            "provisionVMAgent": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHr08GRdCyyugXr8st3R2tHWyapVORGhKP8fQubcGicTwgJxnn2gnYw8AUICBE7enh7C4DDP1eqwf8ral4fMworJpCoJk65HhPQJpoDWMpjum0pLAdpsJZR2kCJXNjVOkH0sw4p6vo7QBgXSlT4F0fYK7idz9mFGb+XvOjyi1F3nJdE0zMdbPGPwboLGkIMHpgqYgJtVpgsdxQUfMYpknR5wd4dCYU9O+vk3tKE3lnN6/oSgcK/eSqc7VDxLXOG7aVTctBWyt949mMbwirBBDEIPUyoxD8ZikVMNzIu4wPjvsLhLmS0rvkRwkAzfWY8ilXz12ht10PCvxdclSZCMWrQvnvUFrbZFVLsE8/4nMAn+QYdUWlxzu7V2Nr4hNfYSDlPb7uEjbPtkND5q9oK5foxNDlfIekjE22BL+TsREDy4wrfwUFjiCynXwQRkdZ3rbSbKvNOAlGJiGSAKtHF1qPgsSuwPKstXFoheO/oY1iwLodSUuQMxf9hJ5qLABF0SU= generated-by-azure",
+                  "path": "/home/azureuser/.ssh/authorized_keys"
+                }
+              ]
+            }
+          },
+          "requireGuestProvisionSignal": true,
+          "secrets": []
+        },
+        "securityProfile": {
+          "securityType": "TrustedLaunch",
+          "uefiSettings": {
+            "secureBootEnabled": true,
+            "vTpmEnabled": true
+          }
+        },
+        "storageProfile": {
+          "dataDisks": [],
+          "diskControllerType": "SCSI",
+          "imageReference": {
+            "offer": "0001-com-ubuntu-server-focal",
+            "publisher": "canonical",
+            "sku": "20_04-lts-gen2",
+            "version": "latest"
+          },
+          "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "deleteOption": "Delete",
+            "diskSizeGB": 30,
+            "managedDisk": {
+              "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_MTGTagDemoProdA_name'), '_OsDisk_1_2d064a4530f34dae84580e6e3a6dcd3e'))]",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "[concat(parameters('virtualMachines_MTGTagDemoProdA_name'), '_OsDisk_1_2d064a4530f34dae84580e6e3a6dcd3e')]",
+            "osType": "Linux"
+          }
+        }
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mark Garmin"
+      },
+      "type": "Microsoft.Compute/virtualMachines",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "apiVersion": "2024-07-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoprodd831_z1_name'))]"
+      ],
+      "location": "eastus",
+      "name": "[parameters('virtualMachines_MTGTagDemoProdD_name')]",
+      "properties": {
+        "additionalCapabilities": {
+          "hibernationEnabled": false
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_D2s_v3"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoprodd831_z1_name'))]",
+              "properties": {
+                "deleteOption": "Delete"
+              }
+            }
+          ]
+        },
+        "osProfile": {
+          "adminUsername": "azureuser",
+          "allowExtensionOperations": true,
+          "computerName": "[parameters('virtualMachines_MTGTagDemoProdD_name')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "patchSettings": {
+              "assessmentMode": "ImageDefault",
+              "automaticByPlatformSettings": {
+                "rebootSetting": "IfRequired"
+              },
+              "patchMode": "AutomaticByPlatform"
+            },
+            "provisionVMAgent": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHr08GRdCyyugXr8st3R2tHWyapVORGhKP8fQubcGicTwgJxnn2gnYw8AUICBE7enh7C4DDP1eqwf8ral4fMworJpCoJk65HhPQJpoDWMpjum0pLAdpsJZR2kCJXNjVOkH0sw4p6vo7QBgXSlT4F0fYK7idz9mFGb+XvOjyi1F3nJdE0zMdbPGPwboLGkIMHpgqYgJtVpgsdxQUfMYpknR5wd4dCYU9O+vk3tKE3lnN6/oSgcK/eSqc7VDxLXOG7aVTctBWyt949mMbwirBBDEIPUyoxD8ZikVMNzIu4wPjvsLhLmS0rvkRwkAzfWY8ilXz12ht10PCvxdclSZCMWrQvnvUFrbZFVLsE8/4nMAn+QYdUWlxzu7V2Nr4hNfYSDlPb7uEjbPtkND5q9oK5foxNDlfIekjE22BL+TsREDy4wrfwUFjiCynXwQRkdZ3rbSbKvNOAlGJiGSAKtHF1qPgsSuwPKstXFoheO/oY1iwLodSUuQMxf9hJ5qLABF0SU= generated-by-azure",
+                  "path": "/home/azureuser/.ssh/authorized_keys"
+                }
+              ]
+            }
+          },
+          "requireGuestProvisionSignal": true,
+          "secrets": []
+        },
+        "securityProfile": {
+          "securityType": "TrustedLaunch",
+          "uefiSettings": {
+            "secureBootEnabled": true,
+            "vTpmEnabled": true
+          }
+        },
+        "storageProfile": {
+          "dataDisks": [],
+          "diskControllerType": "SCSI",
+          "imageReference": {
+            "offer": "0001-com-ubuntu-server-focal",
+            "publisher": "canonical",
+            "sku": "20_04-lts-gen2",
+            "version": "latest"
+          },
+          "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "deleteOption": "Delete",
+            "diskSizeGB": 30,
+            "managedDisk": {
+              "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_MTGTagDemoProdD_name'), '_OsDisk_1_68b18a2d23a24c46b3ba295c37909a1b'))]",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "[concat(parameters('virtualMachines_MTGTagDemoProdD_name'), '_OsDisk_1_68b18a2d23a24c46b3ba295c37909a1b')]",
+            "osType": "Linux"
+          }
+        }
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Compute/virtualMachines",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "apiVersion": "2024-07-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoprodw999_z1_name'))]"
+      ],
+      "location": "eastus",
+      "name": "[parameters('virtualMachines_MTGTagDemoProdW_name')]",
+      "properties": {
+        "additionalCapabilities": {
+          "hibernationEnabled": false
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true
+          }
+        },
+        "hardwareProfile": {
+          "vmSize": "Standard_D2s_v3"
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoprodw999_z1_name'))]",
+              "properties": {
+                "deleteOption": "Delete"
+              }
+            }
+          ]
+        },
+        "osProfile": {
+          "adminUsername": "azureuser",
+          "allowExtensionOperations": true,
+          "computerName": "[parameters('virtualMachines_MTGTagDemoProdW_name')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "patchSettings": {
+              "assessmentMode": "ImageDefault",
+              "automaticByPlatformSettings": {
+                "rebootSetting": "IfRequired"
+              },
+              "patchMode": "AutomaticByPlatform"
+            },
+            "provisionVMAgent": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDHr08GRdCyyugXr8st3R2tHWyapVORGhKP8fQubcGicTwgJxnn2gnYw8AUICBE7enh7C4DDP1eqwf8ral4fMworJpCoJk65HhPQJpoDWMpjum0pLAdpsJZR2kCJXNjVOkH0sw4p6vo7QBgXSlT4F0fYK7idz9mFGb+XvOjyi1F3nJdE0zMdbPGPwboLGkIMHpgqYgJtVpgsdxQUfMYpknR5wd4dCYU9O+vk3tKE3lnN6/oSgcK/eSqc7VDxLXOG7aVTctBWyt949mMbwirBBDEIPUyoxD8ZikVMNzIu4wPjvsLhLmS0rvkRwkAzfWY8ilXz12ht10PCvxdclSZCMWrQvnvUFrbZFVLsE8/4nMAn+QYdUWlxzu7V2Nr4hNfYSDlPb7uEjbPtkND5q9oK5foxNDlfIekjE22BL+TsREDy4wrfwUFjiCynXwQRkdZ3rbSbKvNOAlGJiGSAKtHF1qPgsSuwPKstXFoheO/oY1iwLodSUuQMxf9hJ5qLABF0SU= generated-by-azure",
+                  "path": "/home/azureuser/.ssh/authorized_keys"
+                }
+              ]
+            }
+          },
+          "requireGuestProvisionSignal": true,
+          "secrets": []
+        },
+        "securityProfile": {
+          "securityType": "TrustedLaunch",
+          "uefiSettings": {
+            "secureBootEnabled": true,
+            "vTpmEnabled": true
+          }
+        },
+        "storageProfile": {
+          "dataDisks": [],
+          "diskControllerType": "SCSI",
+          "imageReference": {
+            "offer": "0001-com-ubuntu-server-focal",
+            "publisher": "canonical",
+            "sku": "20_04-lts-gen2",
+            "version": "latest"
+          },
+          "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "deleteOption": "Delete",
+            "diskSizeGB": 30,
+            "managedDisk": {
+              "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_MTGTagDemoProdW_name'), '_OsDisk_1_48c6c9b1949047b9aeb84ee80f243e8e'))]",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "[concat(parameters('virtualMachines_MTGTagDemoProdW_name'), '_OsDisk_1_48c6c9b1949047b9aeb84ee80f243e8e')]",
+            "osType": "Linux"
+          }
+        }
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Compute/virtualMachines",
+      "zones": [
+        "1"
+      ]
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'))]"
+      ],
+      "name": "[concat(parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), '/default')]",
+      "properties": {
+        "addressPrefix": "10.0.0.0/24",
+        "delegations": [],
+        "privateEndpointNetworkPolicies": "Disabled",
+        "privateLinkServiceNetworkPolicies": "Enabled"
+      },
+      "type": "Microsoft.Network/virtualNetworks/subnets"
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_MTGTagDemoProdA_ip_name'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), 'default')]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_MTGTagDemoProdA_nsg_name'))]"
+      ],
+      "kind": "Regular",
+      "location": "eastus",
+      "name": "[parameters('networkInterfaces_mtgtagdemoproda670_z1_name')]",
+      "properties": {
+        "auxiliaryMode": "None",
+        "auxiliarySku": "None",
+        "disableTcpStateTracking": false,
+        "dnsSettings": {
+          "dnsServers": []
+        },
+        "enableAcceleratedNetworking": true,
+        "enableIPForwarding": false,
+        "ipConfigurations": [
+          {
+            "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoproda670_z1_name')), '/ipConfigurations/ipconfig1')]",
+            "name": "ipconfig1",
+            "properties": {
+              "primary": true,
+              "privateIPAddress": "10.0.0.5",
+              "privateIPAddressVersion": "IPv4",
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_MTGTagDemoProdA_ip_name'))]",
+                "properties": {
+                  "deleteOption": "Delete"
+                }
+              },
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), 'default')]"
+              }
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+          }
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_MTGTagDemoProdA_nsg_name'))]"
+        },
+        "nicType": "Standard"
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mark Garmin"
+      },
+      "type": "Microsoft.Network/networkInterfaces"
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_MTGTagDemoProdD_ip_name'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), 'default')]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_MTGTagDemoProdD_nsg_name'))]"
+      ],
+      "kind": "Regular",
+      "location": "eastus",
+      "name": "[parameters('networkInterfaces_mtgtagdemoprodd831_z1_name')]",
+      "properties": {
+        "auxiliaryMode": "None",
+        "auxiliarySku": "None",
+        "disableTcpStateTracking": false,
+        "dnsSettings": {
+          "dnsServers": []
+        },
+        "enableAcceleratedNetworking": true,
+        "enableIPForwarding": false,
+        "ipConfigurations": [
+          {
+            "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoprodd831_z1_name')), '/ipConfigurations/ipconfig1')]",
+            "name": "ipconfig1",
+            "properties": {
+              "primary": true,
+              "privateIPAddress": "10.0.0.6",
+              "privateIPAddressVersion": "IPv4",
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_MTGTagDemoProdD_ip_name'))]",
+                "properties": {
+                  "deleteOption": "Delete"
+                }
+              },
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), 'default')]"
+              }
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+          }
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_MTGTagDemoProdD_nsg_name'))]"
+        },
+        "nicType": "Standard"
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Network/networkInterfaces"
+    },
+    {
+      "apiVersion": "2024-03-01",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_MTGTagDemoProdW_ip_name'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), 'default')]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_MTGTagDemoProdW_nsg_name'))]"
+      ],
+      "kind": "Regular",
+      "location": "eastus",
+      "name": "[parameters('networkInterfaces_mtgtagdemoprodw999_z1_name')]",
+      "properties": {
+        "auxiliaryMode": "None",
+        "auxiliarySku": "None",
+        "disableTcpStateTracking": false,
+        "dnsSettings": {
+          "dnsServers": []
+        },
+        "enableAcceleratedNetworking": true,
+        "enableIPForwarding": false,
+        "ipConfigurations": [
+          {
+            "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_mtgtagdemoprodw999_z1_name')), '/ipConfigurations/ipconfig1')]",
+            "name": "ipconfig1",
+            "properties": {
+              "primary": true,
+              "privateIPAddress": "10.0.0.4",
+              "privateIPAddressVersion": "IPv4",
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_MTGTagDemoProdW_ip_name'))]",
+                "properties": {
+                  "deleteOption": "Delete"
+                }
+              },
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_MTGTagDemoProdW_vnet_name'), 'default')]"
+              }
+            },
+            "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+          }
+        ],
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_MTGTagDemoProdW_nsg_name'))]"
+        },
+        "nicType": "Standard"
+      },
+      "tags": {
+        "Business Owner": "Mike Gallagher",
+        "Environment": "Prod",
+        "Technical Owner": "Mike Gallagher"
+      },
+      "type": "Microsoft.Network/networkInterfaces"
+    }
+  ],
+  "variables": {}
+}
